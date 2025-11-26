@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="d-flex justify-content-center align-items-center min-vh-100"
         style="background: url('{{ asset('images/AirbusA380.jpg') }}') no-repeat center center fixed; background-size: cover;">
-        <div class="card shadow-lg p-5 rounded-5 text-center" style="width: 420px; background: rgba(255, 255, 255, 0.95);">
+        <div class="card shadow-lg p-5 rounded-5 text-center" style="width: 420px; background: rgba(245, 251, 255, 0.7);">
             
             <h1 class="fw-bold text-primary mb-3">Welcome</h1>
             <p class="text-muted mb-4">Please log in to your account</p>

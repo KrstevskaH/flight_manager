@@ -27,7 +27,7 @@
 <body class="font-sans text-gray-900 antialiased">
 
     <div class="d-flex justify-content-center align-items-center min-vh-100">
-        <div class="card shadow-lg p-5 rounded-5 text-center" style="width: 1300px; background: rgba(255, 255, 255, 0.95);">
+        <div class="card shadow-lg p-5 rounded-5 text-center" style="width: 1300px; background: rgba(255, 255, 255, 0.3);">
             {{ $slot }}
         </div>
     </div>
