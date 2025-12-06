@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Flight;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class FlightController extends Controller
 {
@@ -25,6 +26,8 @@ class FlightController extends Controller
 
     public function store(Request $request)
     {
+       
+
         $request->validate([
             'flight_number'  => 'required|string|max:255',
             'airline'        => 'nullable|string|max:255',
@@ -34,6 +37,10 @@ class FlightController extends Controller
             'departure_time' => 'nullable|date',
             'arrival_time'   => 'nullable|date',
         ]);
+         $request->merge([
+        'departure_time' => $request->departure_time ? str_replace('T', ' ', $request->departure_time) : null,
+        'arrival_time'   => $request->arrival_time ? str_replace('T', ' ', $request->arrival_time) : null,
+    ]);
 
         Flight::create($request->only([
             'flight_number',
