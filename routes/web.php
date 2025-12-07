@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\AircraftController;
+
 use Illuminate\Support\Facades\Route;
 
 // Default / главна страница -> редиректира на login
@@ -25,6 +28,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('flights', FlightController::class);
 });
+Route::get('/api/airlines', [ApiController::class, 'getAirlines']);
 
 // Breeze / Fortify auth рутите (login, register, forgot password...)
+
+Route::get('/aircraft', [AircraftController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('aircraft.index');
 require __DIR__.'/auth.php';

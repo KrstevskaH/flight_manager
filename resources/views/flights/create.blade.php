@@ -9,9 +9,36 @@
             <label class="form-label fw-semibold">Flight number</label>
             <input class="form-control" name="flight_number">
         </div>
-        <div class="mb-2">
+        <div class="mb-2 position-relative">
             <label class="form-label fw-semibold">Airline</label>
-            <input class="form-control" name="airline">
+            <input type="text" id="airline" name="airline" class="form-control" autocomplete="off">
+<ul id="airline-suggestions" class="list-group position-absolute"></ul>
+
+<script>
+const airlineInput = document.getElementById('airline');
+const airlineSuggestions = document.getElementById('airline-suggestions');
+
+airlineInput.addEventListener('input', function() {
+    const query = this.value;
+    if (!query) {
+        airlineSuggestions.innerHTML = '';
+        return;
+    }
+
+    fetch(`/api/airlines?q=${query}`)
+        .then(res => res.json())
+        .then(data => {
+            airlineSuggestions.innerHTML = data.map(a => `<li class="list-group-item list-group-item-action">${a}</li>`).join('');
+        });
+});
+
+airlineSuggestions.addEventListener('click', function(e){
+    if(e.target.tagName === 'LI'){
+        airlineInput.value = e.target.textContent;
+        airlineSuggestions.innerHTML = '';
+    }
+});
+</script>
         </div>
         <div class="mb-2">
             <label class="form-label fw-semibold">Origin</label>

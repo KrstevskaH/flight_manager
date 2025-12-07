@@ -16,7 +16,14 @@
             </button>
 
             <div class="collapse navbar-collapse" :class="{'show': open}">
+
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <x-nav-link :href="route('aircraft.index')" :active="request()->routeIs('aircraft.index')"
+                            class="nav-link btn btn-outline-primary me-2">
+                            Aircraft
+                        </x-nav-link>
+                    </li>
                     <li class="nav-item">
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"
                             class="nav-link btn btn-outline-primary me-2">
@@ -24,7 +31,8 @@
                         </x-nav-link>
                     </li>
                     <li class="nav-item dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="userMenu"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
