@@ -16,6 +16,8 @@ class Flight extends Model
         'destination',
         'aircraft',
         'departure_time',
-        'arrival_time'
+        'arrival_time',
+        'scheduled_departure',
+        'scheduled_arrival'
     ];
 }

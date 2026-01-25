@@ -53,11 +53,20 @@ airlineSuggestions.addEventListener('click', function(e){
             <input class="form-control" name="aircraft">
         </div>
         <div class="mb-2">
-            <label class="form-label fw-semibold">Departure Time</label>
+            <label class="form-label fw-semibold">Scheduled Departure</label>
+            <input type="text" name="scheduled_departure" id="scheduled_departure" class="form-control" value="{{ old('scheduled_departure') }}">
+        </div>
+
+        <div class="mb-2">
+            <label class="form-label fw-semibold">Scheduled Arrival</label>
+            <input type="text" name="scheduled_arrival" id="scheduled_arrival" class="form-control" value="{{ old('scheduled_arrival') }}">
+        </div>
+        <div class="mb-2">
+            <label class="form-label fw-semibold">Actual Departure</label>
             <input type="text" name="departure_time" id="departure_time" class="form-control" value="{{ old('departure_time') }}">
         </div>
         <div class="mb-2">
-            <label class="form-label fw-semibold">Arrival Time</label>
+            <label class="form-label fw-semibold">Actual Arrival</label>
             <input type="text" name="arrival_time" id="arrival_time" class="form-control" value="{{ old('arrival_time') }}">
         </div>
         <button class="btn btn-success mt-2" type="submit">Save</button>
@@ -66,6 +75,14 @@ airlineSuggestions.addEventListener('click', function(e){
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
+        flatpickr("#scheduled_departure", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+        flatpickr("#scheduled_arrival", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
         flatpickr("#departure_time", {
             enableTime: true,
             dateFormat: "Y-m-d H:i",

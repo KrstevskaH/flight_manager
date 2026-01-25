@@ -34,6 +34,8 @@ class FlightController extends Controller
             'origin'         => 'nullable|string|max:255',
             'destination'    => 'nullable|string|max:255',
             'aircraft'       => 'nullable|string|max:255',
+            'scheduled_departure' ,
+            'scheduled_arrival' ,
             'departure_time' => 'nullable|date',
             'arrival_time'   => 'nullable|date',
         ]);
@@ -48,6 +50,8 @@ class FlightController extends Controller
             'origin',
             'destination',
             'aircraft',
+            'scheduled_departure',
+            'scheduled_arrival' ,
             'departure_time',
             'arrival_time'
         ]));
@@ -73,6 +77,8 @@ class FlightController extends Controller
             'origin'         => 'nullable|string|max:255',
             'destination'    => 'nullable|string|max:255',
             'aircraft'       => 'nullable|string|max:255',
+            'scheduled_departure' => 'required|date',
+            'scheduled_arrival' => 'required|date',
             'departure_time' => 'nullable|date',
             'arrival_time'   => 'nullable|date',
         ]);
@@ -83,6 +89,8 @@ class FlightController extends Controller
             'origin',
             'destination',
             'aircraft',
+            'scheduled_departure' ,
+            'scheduled_arrival',
             'departure_time',
             'arrival_time'
         ]));

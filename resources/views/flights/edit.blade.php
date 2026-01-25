@@ -27,11 +27,19 @@
             <input class="form-control" name="aircraft" value="{{ $flight->aircraft }}">
         </div>
         <div class="mb-2">
-            <label>Departure Time</label>
+            <label>Scheduled Departure</label>
+            <input type="datetime-local" class="form-control" name="scheduled_departure" value="{{ $flight->departure_time }}">
+        </div>
+        <div class="mb-2">
+            <label>Scheduled Arrival</label>
+            <input type="datetime-local" class="form-control" name="scheduled_arrival" value="{{ $flight->arrival_time }}">
+        </div>
+        <div class="mb-2">
+            <label>Actual Departure</label>
             <input type="datetime-local" class="form-control" name="departure_time" value="{{ $flight->departure_time }}">
         </div>
         <div class="mb-2">
-            <label>Arrival Time</label>
+            <label>Actual Arrival</label>
             <input type="datetime-local" class="form-control" name="arrival_time" value="{{ $flight->arrival_time }}">
         </div>
         <button class="btn btn-success mt-2" type="submit">Update</button>
