@@ -10,7 +10,7 @@
 
         <div class="row">
             <div class="col-md-4 mb-4">
-                <a href="{{ route('aircraft.index') }}" class="text-decoration-none">
+                <a href="{{ route('aircraft.airbus') }}" class="text-decoration-none">
                     <div class="card shadow-sm border-0 rounded-4 h-100 hover:shadow-lg transition duration-300">
                         <img src="{{ asset('images/airbus.jpg') }}" 
                              class="card-img-top" 
