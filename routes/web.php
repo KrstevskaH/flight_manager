@@ -7,6 +7,8 @@ use App\Http\Controllers\AircraftController;
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/aircraft/airbus', [AircraftController::class, 'airbus'])->name('aircraft.airbus');
+
 // Default / главна страница -> редиректира на login
 Route::get('/', function () {
     return redirect()->route('login');

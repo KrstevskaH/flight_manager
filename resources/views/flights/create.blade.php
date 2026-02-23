@@ -93,4 +93,5 @@ airlineSuggestions.addEventListener('click', function(e){
             dateFormat: "Y-m-d H:i",
         });
     </script>
+    <a class="btn btn-primary mt-3" href="{{ route('flights.index') }}">Back</a>
 </x-app-layout>

@@ -44,4 +44,5 @@
         </div>
         <button class="btn btn-success mt-2" type="submit">Update</button>
     </form>
+    <a class="btn btn-primary mt-3" href="{{ route('flights.index') }}">Back</a>
 </x-app-layout>
