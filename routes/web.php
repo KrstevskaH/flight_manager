@@ -7,33 +7,43 @@ use App\Http\Controllers\AircraftController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/aircraft/airbus', [AircraftController::class, 'airbus'])->name('aircraft.airbus');
-// Default / главна страница -> редиректира на login
-Route::get('/', function () {
-    return redirect()->route('login');
-});
 
-// Dashboard -> покажува листа на летови, само за auth корисници
+
+// Dashboard 
 Route::get('/dashboard', [FlightController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-// Auth рутите за профил
+// Auth routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Flight CRUD рутите, само за логирани и верифицирани корисници
+// Flight CRUD for authenticated users
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('flights', FlightController::class);
 });
 Route::get('/api/airlines', [ApiController::class, 'getAirlines']);
 
-// Breeze / Fortify auth рутите (login, register, forgot password...)
+// Aircaft Controller
+Route::get('/aircraft/airbus', [AircraftController::class, 'airbus'])->name('aircraft.airbus');
+
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 
 Route::get('/aircraft', [AircraftController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('aircraft.index');
+
+Route::get('/aircraft/boeing', [AircraftController::class, 'boeing'])
+    ->middleware(['auth', 'verified'])
+    ->name('aircraft.boeing');
+
+    Route::get('/aircraft/concorde', [AircraftController::class, 'concorde'])
+    ->middleware(['auth', 'verified'])
+    ->name('aircraft.concorde');
+
 require __DIR__.'/auth.php';

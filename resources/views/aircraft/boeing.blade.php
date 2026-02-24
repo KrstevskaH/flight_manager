@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="fw-bold text-primary">Airbus Models</h2>
+        <h2 class="fw-bold text-primary">Boeing Models</h2>
     </x-slot>
 
     <div class="container my-4">

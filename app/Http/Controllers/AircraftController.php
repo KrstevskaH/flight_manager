@@ -144,4 +144,68 @@ class AircraftController extends Controller
 
         return view('aircraft.index', compact('aircrafts'));
     }
+    public function boeing()
+{
+    $aircrafts = [
+        [
+            'model' => 'Boeing 737-800',
+            'manufacturer' => 'Boeing',
+            'engines' => '2 × CFM56-7B',
+            'image' => '/images/b737.jpg',
+            'description' => 'The 737-800 is one of the most popular narrow-body aircraft for short and medium routes.',
+            'max_speed' => '842 km/h',
+            'range' => '5,765 km',
+            'seats' => '160-189',
+        ],
+        [
+            'model' => 'Boeing 747-8',
+            'manufacturer' => 'Boeing',
+            'engines' => '4 × GEnx-2B67',
+            'image' => '/images/b747.jpg',
+            'description' => 'The 747-8 is the latest and largest version of the iconic jumbo jet.',
+            'max_speed' => '988 km/h',
+            'range' => '14,815 km',
+            'seats' => '410-467',
+        ],
+        [
+            'model' => 'Boeing 777-300ER',
+            'manufacturer' => 'Boeing',
+            'engines' => '2 × GE90-115B',
+            'image' => '/images/b777.jpg',
+            'description' => 'The 777-300ER is a long-range, twin-engine wide-body aircraft.',
+            'max_speed' => '945 km/h',
+            'range' => '13,650 km',
+            'seats' => '365-396',
+        ],
+        [
+            'model' => 'Boeing 787-9 Dreamliner',
+            'manufacturer' => 'Boeing',
+            'engines' => '2 × Rolls-Royce Trent 1000',
+            'image' => '/images/b787.jpg',
+            'description' => 'The 787 Dreamliner is a modern, fuel-efficient long-range aircraft made with composite materials.',
+            'max_speed' => '913 km/h',
+            'range' => '14,140 km',
+            'seats' => '250-290',
+        ],
+    ];
+
+    return view('aircraft.boeing', compact('aircrafts'));
+}
+public function concorde()
+{
+    $aircrafts = [
+        [
+            'model' => 'Concorde',
+            'manufacturer' => 'Aérospatiale / British Aircraft Corporation',
+            'engines' => '4 × Rolls-Royce Olympus 593',
+            'image' => '/images/concorde.jpg',
+            'description' => 'The Concorde was a supersonic passenger airliner capable of flying at twice the speed of sound (Mach 2).',
+            'max_speed' => '2,179 km/h',
+            'range' => '7,222 km',
+            'seats' => '92-128',
+        ],
+    ];
+
+    return view('aircraft.concorde', compact('aircrafts'));
+}
 }
