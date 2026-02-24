@@ -46,4 +46,11 @@ Route::get('/aircraft/boeing', [AircraftController::class, 'boeing'])
     ->middleware(['auth', 'verified'])
     ->name('aircraft.concorde');
 
+    Route::post('/aircraft/compare', [AircraftController::class, 'compare'])
+    ->middleware(['auth', 'verified'])
+    ->name('aircraft.compare');
+    Route::get('/aircraft/compare', [AircraftController::class, 'showCompareForm'])
+    ->middleware(['auth', 'verified'])
+    ->name('aircraft.compare.form');
+
 require __DIR__.'/auth.php';

@@ -7,6 +7,11 @@
         <a href="{{ route('dashboard') }}" class="btn btn-secondary mb-3">
             &larr; Back to Dashboard
         </a>
+        <div class="mb-3">
+    <a href="{{ route('aircraft.compare.form') }}" class="btn btn-primary">
+        Compare Aircraft
+    </a>
+</div>
 
         <div class="row">
             <div class="col-md-4 mb-4">
