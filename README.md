@@ -1,4 +1,4 @@
-flight_manager is a web application built with Laravel and TailwindCSS, designed to manage flights, passengers, and reservations. This project demonstrates practical full-stack development skills with a backend and frontend integration using PHP, SQL, and modern web technologies.
+flight_manager is a web application built with Laravel and TailwindCSS, designed to manage flights. This project demonstrates practical full-stack development skills with a backend and frontend integration using PHP, SQL, and modern web technologies.
 
 - Technologies
 
@@ -40,8 +40,14 @@ php artisan migrate
 Start the server:
 php artisan serve
 
-Notes
+Screenshots:
+![Log in form](https://github.com/user-attachments/assets/1ef067ba-72e3-4c2f-8d93-fe5484708ab0)
+![Dashboard](https://github.com/user-attachments/assets/d3883fe2-08f8-45ba-abf4-0573cfa684fa)
+![Aircraft categories](https://github.com/user-attachments/assets/d4208ebb-c6ff-46b8-b66d-8dfc576f3f71)
+![Airbus Category](https://github.com/user-attachments/assets/6005d7a0-7d10-4902-8950-27091c36ff84)
+![Compared Aircrafts](https://github.com/user-attachments/assets/75ed076c-e3d9-4485-b550-76077e5c3e8d)
+![Profile Information](https://github.com/user-attachments/assets/6055b52f-0585-423c-9848-64c2016d5dd9)
 
-This project was developed as a practice project to learn Laravel and TailwindCSS
-Includes basic data management and relational database functionality
-Can be extended with authentication, API integrations, or BI visualization tools.
+
+
+
