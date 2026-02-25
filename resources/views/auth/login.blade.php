@@ -6,7 +6,7 @@
             <h1 class="fw-bold text-primary mb-3">Welcome</h1>
             <p class="text-muted mb-4">Please log in to your account</p>
 
-            <!-- Session Status -->
+            
             <x-auth-session-status class="mb-3" :status="session('status')" />
 
             <form method="POST" action="{{ route('login') }}">

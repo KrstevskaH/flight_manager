@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Flight;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+
 
 class FlightController extends Controller
 {
@@ -15,7 +16,9 @@ class FlightController extends Controller
 
     public function index()
     {
-        $flights = Flight::orderBy('created_at', 'desc')->get();
+        $flights = Flight::where('user_id', Auth::id())
+                 ->orderBy('created_at', 'desc')
+                 ->get();
         return view('flights.index', compact('flights'));
     }
 
@@ -24,40 +27,47 @@ class FlightController extends Controller
         return view('flights.create');
     }
 
-    public function store(Request $request)
-    {
-       
+   public function store(Request $request)
+{
+    $request->validate([
+        'flight_number'  => 'required|string|max:255',
+        'airline'        => 'nullable|string|max:255',
+        'origin'         => 'nullable|string|max:255',
+        'destination'    => 'nullable|string|max:255',
+        'aircraft'       => 'nullable|string|max:255',
+        'scheduled_departure' => 'required|date',
+        'scheduled_arrival'   => 'required|date',
+        'departure_time' => 'nullable|date',
+        'arrival_time'   => 'nullable|date',
+    ]); 
 
-        $request->validate([
-            'flight_number'  => 'required|string|max:255',
-            'airline'        => 'nullable|string|max:255',
-            'origin'         => 'nullable|string|max:255',
-            'destination'    => 'nullable|string|max:255',
-            'aircraft'       => 'nullable|string|max:255',
-            'scheduled_departure' ,
-            'scheduled_arrival' ,
-            'departure_time' => 'nullable|date',
-            'arrival_time'   => 'nullable|date',
-        ]);
-         $request->merge([
+    
+    $request->merge([
         'departure_time' => $request->departure_time ? str_replace('T', ' ', $request->departure_time) : null,
         'arrival_time'   => $request->arrival_time ? str_replace('T', ' ', $request->arrival_time) : null,
     ]);
 
-        Flight::create($request->only([
-            'flight_number',
-            'airline',
-            'origin',
-            'destination',
-            'aircraft',
-            'scheduled_departure',
-            'scheduled_arrival' ,
-            'departure_time',
-            'arrival_time'
-        ]));
+    
+    $data = $request->only([
+        'flight_number',
+        'airline',
+        'origin',
+        'destination',
+        'aircraft',
+        'scheduled_departure',
+        'scheduled_arrival',
+        'departure_time',
+        'arrival_time'
+    ]);
 
-        return redirect()->route('flights.index')->with('success', 'Flight created successfully!');
-    }
+    
+    $data['user_id'] = Auth::id();
+
+    
+    Flight::create($data);
+
+    return redirect()->route('flights.index')->with('success', 'Flight created successfully!');
+}
 
     public function show(Flight $flight)
     {

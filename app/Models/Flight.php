@@ -18,6 +18,7 @@ class Flight extends Model
         'departure_time',
         'arrival_time',
         'scheduled_departure',
-        'scheduled_arrival'
+        'scheduled_arrival',
+        'user_id',
     ];
 }
