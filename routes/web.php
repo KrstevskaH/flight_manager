@@ -26,6 +26,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('flights', FlightController::class);
 });
 Route::get('/api/airlines', [ApiController::class, 'getAirlines']);
+Route::post('/flights/{flight}/reserve', [FlightController::class, 'reserve'])
+    ->name('flights.reserve')
+    ->middleware('auth');
 
 // Aircaft Controller
 Route::get('/aircraft/airbus', [AircraftController::class, 'airbus'])->name('aircraft.airbus');

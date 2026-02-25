@@ -113,4 +113,19 @@ class FlightController extends Controller
         $flight->delete();
         return redirect()->route('flights.index')->with('success', 'Flight deleted successfully!');
     }
+//User flight reervation
+    public function reserve(Request $request, Flight $flight)
+{
+    $user = $request->user(); // Authenticated user
+
+    
+    if ($user->flights()->where('flight_id', $flight->id)->exists()) {
+        return redirect()->back()->with('error', 'You already reserved this flight!');
+    }
+
+    
+    $user->flights()->attach($flight->id);
+
+    return redirect()->back()->with('success', 'Flight reserved successfully!');
+}
 }

@@ -31,6 +31,10 @@
                         @method('DELETE')
                         <button class="btn btn-sm btn-danger">Delete</button>
                     </form>
+                    <form action="{{ route('flights.reserve', $f->id) }}" method="POST" class="d-inline">
+        @csrf
+        <button type="submit" class="btn btn-sm btn-success">Reserve Flight</button>
+    </form>
                 </td>
             </tr>
             @endforeach

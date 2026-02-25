@@ -21,4 +21,8 @@ class Flight extends Model
         'scheduled_arrival',
         'user_id',
     ];
+    public function users()
+{
+    return $this->belongsToMany(User::class);
+}
 }
